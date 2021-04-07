@@ -1,4 +1,4 @@
-const { exec, execSync } = require('child_process')
+const { execSync } = require('child_process')
 const fs = require('fs')
 const path= require('path')
 
@@ -13,7 +13,7 @@ module.exports = (payload) => {
     `)
   }
 
-  exec(`
+  execSync(`
     cd ~/${name} &&
     git pull
   `)
