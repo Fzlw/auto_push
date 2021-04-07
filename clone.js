@@ -7,8 +7,8 @@ module.exports = (payload) => {
   const isClone = fs.existsSync(path.resolve(`~/${name}`))
   if (!isClone) {
     execSync(`
-      cd ~/${name} &&
-      git clone ${payload.clone_url}
+      cd ~/ &&
+      git clone ${payload.repository.clone_url}
     `)
   }
 

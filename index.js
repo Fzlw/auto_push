@@ -8,8 +8,8 @@ http
       const chunks = []
       req.on('data', data => chunks.push(data))
       req.on('end', () => {
-        console.log(Buffer.concat(chunks).toString())
-        const json = JSON.parse(Buffer.concat(chunks))
+        const str = Buffer.concat(chunks).toString()
+        const json = JSON.parse(str)
         autoPull(json)
         res.end('ok')
       })
