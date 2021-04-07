@@ -4,7 +4,8 @@ const path= require('path')
 
 module.exports = (payload) => {
   const name = payload.repository.name
-  const isClone = fs.existsSync(path.resolve(`~/${name}`))
+  // linux下用户目录process.env.HOME
+  const isClone = fs.existsSync(path.join(process.env.HOME, name))
   if (!isClone) {
     execSync(`
       cd ~/ &&
