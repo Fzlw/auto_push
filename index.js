@@ -11,7 +11,7 @@ http
         const str = Buffer.concat(chunks).toString()
         const json = JSON.parse(str)
         try {
-          console.log('start', json)
+          console.log('start autoPull')
           autoPull(json)
         } catch (error) {
           console.log(error)
