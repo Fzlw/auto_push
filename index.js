@@ -10,7 +10,12 @@ http
       req.on('end', () => {
         const str = Buffer.concat(chunks).toString()
         const json = JSON.parse(str)
-        autoPull(json)
+        try {
+          console.log('start', json)
+          autoPull(json)
+        } catch (error) {
+          console.log(error)
+        }
         res.end('ok')
       })
       return
