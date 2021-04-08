@@ -5,16 +5,9 @@ const path= require('path')
 module.exports = (payload) => {
   const name = payload.repository.name
   // linux下用户目录process.env.HOME
-  const isClone = fs.existsSync(path.join(process.env.HOME, name))
-  if (!isClone) {
-    execSync(`
-      cd ~/ &&
-      git clone ${payload.repository.clone_url}
-    `)
-  }
-
   execSync(`
-    cd ~/${name} &&
-    git pull
+    rm -rf ~/${name}
+    cd ~/ &&
+    git clone ${payload.repository.clone_url}
   `)
 }
